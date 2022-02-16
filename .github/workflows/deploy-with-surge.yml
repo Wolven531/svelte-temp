@@ -1,5 +1,7 @@
 name: Deploy Website Using Surge
 
+## more info - https://github.com/yavisht/deploy-via-surge.sh-github-action-template
+
 # on: [push]
 on:
   push:
