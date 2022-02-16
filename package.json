@@ -5,6 +5,12 @@
 		"url": "https://github.com/Wolven531/svelte-temp"
 	},
 	"version": "1.0.0",
+	"description": "",
+	"engines": {
+		"node": "16.12.0",
+		"npm": "8.1.0",
+		"yarn": "1.22.15"
+	},
 	"private": true,
 	"scripts": {
 		"build": "rollup -c",
