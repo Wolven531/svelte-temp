@@ -10,10 +10,10 @@
     "start:host": "sirv public --no-clear --host"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
     "@rollup/plugin-typescript": "^8.3.0",
-    "@tsconfig/svelte": "^2.0.0",
+    "@tsconfig/svelte": "^3.0.0",
     "rollup": "^2.67.2",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.5",
