@@ -9,7 +9,7 @@
 	"engines": {
 		"node": "16.12.0",
 		"npm": "8.1.0",
-		"yarn": "1.22.15"
+		"yarn": ">=1.22.15"
 	},
 	"private": true,
 	"scripts": {
