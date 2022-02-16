@@ -47,21 +47,6 @@ If you want to use `baseUrl` or `path` aliases within your `tsconfig`, you need 
 
 ## Deploying to the web
 
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already
-
-```bash
-yarn global add vercel
-```
-
-Then, from within your project folder
-
-```bash
-cd public
-vercel deploy --name svelte-temp
-```
-
 ### With [surge](https://surge.sh/)
 
 Install `surge` if you haven't already
