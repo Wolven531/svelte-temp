@@ -1,0 +1,30 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    name: Build
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.12.0]
+        yarn-version: [1.22.15]
+
+    steps:
+      - name: Checkout repository
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - run: yarn --frozen-lockfile
+      - run: yarn build
+      - name: Archive build output
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: ./public
