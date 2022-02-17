@@ -1,0 +1,39 @@
+name: Unit Tests (jest)
+
+on: [push]
+
+jobs:
+    test:
+        name: Unit test w/ jest
+
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [16.12.0]
+                yarn-version: [1.22.15]
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'yarn'
+
+            - name: Install Node deps w/ yarn
+              run: yarn --frozen-lockfile
+
+            - name: Build webapp
+              run: yarn build
+
+            - name: Run unit tests
+              run: yarn test
+
+            - name: Archive code coverage results
+              uses: actions/upload-artifact@v2
+              with:
+                  name: code-coverage-report
+                  path: coverage
