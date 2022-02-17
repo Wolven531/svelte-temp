@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    name: Build
+    # name: Build
 
     runs-on: ubuntu-latest
 
@@ -16,6 +16,7 @@ jobs:
     steps:
       - name: Checkout repository
       - uses: actions/checkout@v2
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -23,6 +24,7 @@ jobs:
           cache: 'yarn'
       - run: yarn --frozen-lockfile
       - run: yarn build
+
       - name: Archive build output
         uses: actions/upload-artifact@v2
         with:
