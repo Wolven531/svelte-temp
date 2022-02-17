@@ -1,4 +1,4 @@
-name: Deploy Website Using Surge
+name: Deploy Website (Surge)
 
 ## more info - https://github.com/yavisht/deploy-via-surge.sh-github-action-template
 
@@ -41,6 +41,9 @@ jobs:
 
             - name: Build webapp
               run: yarn build
+
+            - name: Run unit tests
+              run: yarn test
 
             - name: Deploy w/ surge CLI
               run: surge ./public ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}

@@ -1,4 +1,4 @@
-name: Unit Tests (jest)
+name: Unit Tests (Jest)
 
 on: [push]
 
