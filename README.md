@@ -1,5 +1,9 @@
 # Svelte-temp
 
+[![Build](https://github.com/Wolven531/svelte-temp/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Wolven531/svelte-temp/actions/workflows/build.yml)
+[![Unit Tests (jest)](https://github.com/Wolven531/svelte-temp/actions/workflows/unit-test.yml/badge.svg?branch=main)](https://github.com/Wolven531/svelte-temp/actions/workflows/unit-test.yml)
+[![Deploy Website Using Surge](https://github.com/Wolven531/svelte-temp/actions/workflows/deploy-with-surge.yml/badge.svg?branch=main)](https://github.com/Wolven531/svelte-temp/actions/workflows/deploy-with-surge.yml)
+
 ## Get started
 
 Install the dependencies
