@@ -3,34 +3,44 @@ name: Deploy Website Using Surge
 ## more info - https://github.com/yavisht/deploy-via-surge.sh-github-action-template
 
 on:
-  push:
-    branches: [main]
-  # pull_request:
-  #   branches: [main]
+    push:
+        branches: [main]
+    # pull_request:
+    #   branches: [main]
 
 jobs:
-  deploy:
-    name: Deploy w/ surge
+    deploy:
+        name: Deploy w/ surge
 
-    runs-on: ubuntu-latest
+        runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.12.0]
-        yarn-version: [1.22.15]
+        strategy:
+            matrix:
+                node-version: [16.12.0]
+                yarn-version: [1.22.15]
 
-    steps:
-      - uses: actions/checkout@v2
-      ### !!! can only use artifacts from the same workflow run
-      # - uses: actions/download-artifact@v2
-      #   with:
-      #     name: public
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
-      - run: yarn --frozen-lockfile
-      - run: yarn build
-      - run: yarn global add surge
-      - run: surge ./public ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            ### !!! can only use artifacts from the same workflow run
+            # - uses: actions/download-artifact@v2
+            #   with:
+            #     name: public
+
+            - name: Setup Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'yarn'
+
+            - name: Install surge CLI
+              run: yarn global add surge
+
+            - name: Install Node deps w/ yarn
+              run: yarn --frozen-lockfile
+
+            - name: Build webapp
+              run: yarn build
+
+            - name: Deploy w/ surge CLI
+              run: surge ./public ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
