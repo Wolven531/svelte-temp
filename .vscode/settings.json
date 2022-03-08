@@ -1,6 +1,8 @@
 {
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[svelte]": {
-		"editor.defaultFormatter": "svelte.svelte-vscode"
-	}
+		"editor.defaultFormatter": "svelte.svelte-vscode",
+	},
+	"svelte.plugin.svelte.format.config.svelteBracketNewLine": false,
+	"svelte.plugin.svelte.useNewTransformation": true
 }
